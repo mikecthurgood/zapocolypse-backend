@@ -9,6 +9,24 @@ class SkillsController < ApplicationController
   end
 
   def show
+    user = get_current_user
+    skill = Skill.all.find_by(id: params[:id])
+
+    if user
+      render json: skill
+    else
+      render json: {error: 'Unable to validate user.'}, status: 401
+    end
+  end
+
+  def myskills
+    user = get_current_user
+
+    if user
+      render json: user.skills
+    else
+      render json: {error: 'Unable to validate user.'}, status: 401
+    end
   end
 
 end

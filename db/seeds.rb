@@ -18,3 +18,9 @@ skill1 = Skill.create(name: 'Archery', skill_type: 'combat', description: 'Arche
 skill2 = Skill.create(name: 'Cooking', skill_type: 'survival', description: 'Cooking or cookery is the art, technology, science and craft of preparing food for consumption. Cooking techniques and ingredients vary widely across the world, from grilling food over an open fire to using electric stoves, to baking in various types of ovens, reflecting unique environmental, economic, and cultural traditions and trends. Types of cooking also depend on the skill levels and training of cooks.')
 
 skill3 = Skill.create(name: 'Swordsmanship', skill_type: 'combat', description: 'Swordsmanship or sword fighting refers to the skills of a swordsman, a person versed in the art of the sword. The term is modern, and as such was mainly used to refer to smallsword fencing, but by extension it can also be applied to any martial art involving the use of a sword.')
+
+user1.skills << skill1
+user1.skills << skill2
+user2.skills << skill2
+user2.skills << skill3
+
