@@ -27,9 +27,8 @@ ActiveRecord::Schema.define(version: 2019_11_08_100643) do
     t.string "username"
     t.string "password_digest"
     t.integer "age"
+    t.float "weight"
     t.float "height"
-    t.string "occupation"
-    t.string "living_in"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
