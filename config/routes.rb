@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   get '/skills', to: 'skills#index'
   get '/skill', to: 'skills#show'
+  get '/myskills', to: 'skills#myskills'
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_07_175527) do
+ActiveRecord::Schema.define(version: 2019_11_08_100643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,10 +27,22 @@ ActiveRecord::Schema.define(version: 2019_11_07_175527) do
     t.string "username"
     t.string "password_digest"
     t.integer "age"
-    t.float "weight"
     t.float "height"
+    t.string "occupation"
+    t.string "living_in"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "userskills", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "skill_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["skill_id"], name: "index_userskills_on_skill_id"
+    t.index ["user_id"], name: "index_userskills_on_user_id"
+  end
+
+  add_foreign_key "userskills", "skills"
+  add_foreign_key "userskills", "users"
 end
