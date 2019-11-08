@@ -10,27 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_08_180425) do
+ActiveRecord::Schema.define(version: 2019_11_08_100643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "activities", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "skill_activities", force: :cascade do |t|
-    t.bigint "skill_id", null: false
-    t.bigint "activity_id", null: false
-    t.integer "level"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["activity_id"], name: "index_skill_activities_on_activity_id"
-    t.index ["skill_id"], name: "index_skill_activities_on_skill_id"
-  end
 
   create_table "skills", force: :cascade do |t|
     t.string "name"
@@ -38,15 +21,6 @@ ActiveRecord::Schema.define(version: 2019_11_08_180425) do
     t.string "skill_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "user_activities", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "activity_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["activity_id"], name: "index_user_activities_on_activity_id"
-    t.index ["user_id"], name: "index_user_activities_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -69,10 +43,6 @@ ActiveRecord::Schema.define(version: 2019_11_08_180425) do
     t.index ["user_id"], name: "index_userskills_on_user_id"
   end
 
-  add_foreign_key "skill_activities", "activities"
-  add_foreign_key "skill_activities", "skills"
-  add_foreign_key "user_activities", "activities"
-  add_foreign_key "user_activities", "users"
   add_foreign_key "userskills", "skills"
   add_foreign_key "userskills", "users"
 end

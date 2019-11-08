@@ -19,4 +19,14 @@ class SkillsController < ApplicationController
     end
   end
 
+  def myskills
+    user = get_current_user
+
+    if user
+      render json: user.skills
+    else
+      render json: {error: 'Unable to validate user.'}, status: 401
+    end
+  end
+
 end
