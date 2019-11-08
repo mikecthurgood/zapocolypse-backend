@@ -1,8 +1,8 @@
-class SkillsController < ApplicationController
+class ActivitiesController < ApplicationController
   def index
     user = get_current_user
     if user
-      render json: Skill.all
+      render json: Activity.all
     else
       render json: {error: 'Unable to validate user.'}, status: 401
     end
@@ -10,10 +10,10 @@ class SkillsController < ApplicationController
 
   def show
     user = get_current_user
-    skill = Skill.all.find_by(id: params[:id])
+    activity = Activity.all.find_by(id: params[:id])
 
     if user
-      render json: skill
+      render json: activity
     else
       render json: {error: 'Unable to validate user.'}, status: 401
     end
