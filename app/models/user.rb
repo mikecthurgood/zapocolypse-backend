@@ -1,8 +1,6 @@
 class User < ApplicationRecord
     has_secure_password
-    has_many :userskills
     has_many :user_activities
-    has_many :skills, through: :userskills
     has_many :activities, through: :user_activities
 
 
