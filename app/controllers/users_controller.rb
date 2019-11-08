@@ -20,5 +20,23 @@ class UsersController < ApplicationController
       render json: {error: 'Unable to validate user.'}, status: 401
     end
   end
+
+  def create
+    user = User.new
+    user.username = params[:username]
+    user.password = params[:password]
+    user.password_confirmation = params[:password_conf]
+    user.age = params[:age]
+    user.height = params[:height]
+    user.occupation = params[:occupation]
+    user.living_in = params[:location]
+    user.save
+
+    if user
+      render json: {username: user.username, token: issue_token({id: user.id})}
+    else 
+      render json: {error: 'Unable to create user.'}, status: 500
+    end
+  end
   
 end
