@@ -1,6 +1,0 @@
-class Activity < ApplicationRecord
-    has_many :skill_activities
-    has_many :user_activities
-    has_many :skills, through: :skill_activities
-    has_many :users, through: :user_activities
-end
