@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Userskill.destroy_all
+
 SkillActivity.destroy_all
 UserActivity.destroy_all
 User.destroy_all
