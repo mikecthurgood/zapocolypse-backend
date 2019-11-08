@@ -9,6 +9,7 @@
 
 User.destroy_all
 Skill.destroy_all
+Userskill.destroy_all
 
 user1 = User.create(username: 'Mike', password: 'Mike')
 user2 = User.create(username: 'Matt', password: 'Matt')
