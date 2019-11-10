@@ -36,7 +36,7 @@ SkillActivity.create(activity: activity2, skill: skill4, level: 1)
 # creating user activities 
 user2.activities << activity2
 user2.activities << activity3
-
+user1.activities << activity1
 
 
 
