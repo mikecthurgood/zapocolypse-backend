@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     user = User.find_by(username: params[:username])
     
     if user && user.authenticate(params[:password])
-      render json: {username: user.username, userSkills: user.skills, userActivities: user.activities, token: issue_token({id: user.id})}
+      render json: {username: user.username, userSkills: user.skills, userActivities: user.activities, skill_zaps: user.skill_zaps, token: issue_token({id: user.id})}
     else
       render json: {error: 'Username or Password is invalid.'}, status: 401
     end
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     user.save
 
     if user
-      render json: {username: user.username, userskills: user.skills, skill_zaps: user.skill_zaps, token: issue_token({id: user.id})}
+      render json: {username: user.username, userSkills: user.skills, userActivities: user.activities, skill_zaps: user.skill_zaps, token: issue_token({id: user.id})}
     else 
       render json: {error: 'Unable to create user.'}, status: 500
     end
