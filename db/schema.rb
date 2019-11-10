@@ -60,19 +60,8 @@ ActiveRecord::Schema.define(version: 2019_11_08_180425) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "userskills", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "skill_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["skill_id"], name: "index_userskills_on_skill_id"
-    t.index ["user_id"], name: "index_userskills_on_user_id"
-  end
-
   add_foreign_key "skill_activities", "activities"
   add_foreign_key "skill_activities", "skills"
   add_foreign_key "user_activities", "activities"
   add_foreign_key "user_activities", "users"
-  add_foreign_key "userskills", "skills"
-  add_foreign_key "userskills", "users"
 end
