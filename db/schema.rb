@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_10_100415) do
+ActiveRecord::Schema.define(version: 2019_11_10_141230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2019_11_10_100415) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "type"
+    t.string "activity_type"
     t.string "location"
     t.string "provider"
     t.string "url", default: ""
@@ -38,12 +38,19 @@ ActiveRecord::Schema.define(version: 2019_11_10_100415) do
     t.index ["skill_id"], name: "index_skill_activities_on_skill_id"
   end
 
+  create_table "skill_classes", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "skills", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.string "skill_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "skill_class_id"
+    t.index ["skill_class_id"], name: "index_skills_on_skill_class_id"
   end
 
   create_table "user_activities", force: :cascade do |t|
@@ -68,6 +75,7 @@ ActiveRecord::Schema.define(version: 2019_11_10_100415) do
 
   add_foreign_key "skill_activities", "activities"
   add_foreign_key "skill_activities", "skills"
+  add_foreign_key "skills", "skill_classes"
   add_foreign_key "user_activities", "activities"
   add_foreign_key "user_activities", "users"
 end
