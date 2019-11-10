@@ -1,10 +1,10 @@
 
 SkillActivity.destroy_all
 UserActivity.destroy_all
-SkillClass.destroy_all
 
 User.destroy_all
 Skill.destroy_all
+SkillClass.destroy_all
 Activity.destroy_all
 
 user1 = User.create(username: 'Mike', password: 'Mike')
