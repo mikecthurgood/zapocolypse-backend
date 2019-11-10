@@ -1,8 +1,11 @@
 class ActivitiesController < ApplicationController
   def index
     user = get_current_user
+    activities = Activity.all
     if user
-      render json: Activity.all
+      render json: activities.to_json(:include => {
+        :skills => {:only => [:name]}
+        })
     else
       render json: {error: 'Unable to validate user.'}, status: 401
     end

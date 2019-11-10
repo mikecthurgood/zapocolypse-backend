@@ -1,8 +1,9 @@
 class SkillsController < ApplicationController
   def index
     user = get_current_user
+    skills = Skill.all
     if user
-      render json: Skill.all
+      render json: skills.to_json()
     else
       render json: {error: 'Unable to validate user.'}, status: 401
     end
@@ -13,7 +14,7 @@ class SkillsController < ApplicationController
     skill = Skill.all.find_by(id: params[:id])
 
     if user
-      render json: skill
+      render json: skill.to_json(:include => {:activities => {only: [:name, :description, :activity_type, :location, :cost, :url, :duration]}})
     else
       render json: {error: 'Unable to validate user.'}, status: 401
     end
