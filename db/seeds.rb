@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 
 SkillActivity.destroy_all
 UserActivity.destroy_all
@@ -15,20 +7,8 @@ User.destroy_all
 Skill.destroy_all
 Activity.destroy_all
 
-
 user1 = User.create(username: 'Mike', password: 'Mike')
 user2 = User.create(username: 'Matt', password: 'Matt')
-
-# skill1 = Skill.create(name: 'Archery', skill_type: 'combat', description: 'Archery is the art, sport, practice, or skill of using a bow to shoot arrows. The word comes from the Latin arcus. Historically, archery has been used for hunting and combat. In modern times, it is mainly a competitive sport and recreational activity. A person who participates in archery is typically called an archer or a bowman, and a person who is fond of or an expert at archery is sometimes called a toxophilite.')
-# skill2 = Skill.create(name: 'Cooking', skill_type: 'survival', description: 'Cooking or cookery is the art, technology, science and craft of preparing food for consumption. Cooking techniques and ingredients vary widely across the world, from grilling food over an open fire to using electric stoves, to baking in various types of ovens, reflecting unique environmental, economic, and cultural traditions and trends. Types of cooking also depend on the skill levels and training of cooks.')
-# skill3 = Skill.create(name: 'Swordsmanship', skill_type: 'combat', description: 'Swordsmanship or sword fighting refers to the skills of a swordsman, a person versed in the art of the sword. The term is modern, and as such was mainly used to refer to smallsword fencing, but by extension it can also be applied to any martial art involving the use of a sword.')
-# skill4 = Skill.create(name: 'Dexterity', skill_type: 'combat', description: 'dodge things.')
-
-activity1 = Activity.create(name: 'Bow Crafting video', description: 'how to make cool ass bows for beginners')
-activity2 = Activity.create(name: 'Fencing class', description: 'Learn some new fencing techniques with Juan at these intermediate classes')
-activity3 = Activity.create(name: 'Tasty BBQ burgers video', description: 'Quick guide to cooking burgers on a barbeque')
-
-
 
 # defines the skills (and difficulty of skill) that an activity has
 # SkillActivity.create(activity: activity2, skill: skill3, level: 2) 
@@ -36,9 +16,6 @@ activity3 = Activity.create(name: 'Tasty BBQ burgers video', description: 'Quick
 # SkillActivity.create(activity: activity1, skill: skill1, level: 1) 
 # SkillActivity.create(activity: activity2, skill: skill4, level: 1) 
 
-# creating user activities 
-user2.activities << activity2
-user2.activities << activity3
 
 Activity.create(name:"Automotive Specialist Certificate Level 1",location:"The Manchester College",cost: 397.00,url:"https://www.tmc.ac.uk/courses/automotive-specialist",description:"Automotive Specialist Certificate Level 1: If you’ve got a keen interest in the automotive industry and would love to learn about the maintenance of all different types of transportation, then this Level 1 Certificate could be a great place to begin your journey into this exciting industry. As you learn what it takes to become a motor vehicle technician, you will get the chance to develop your knowledge and skills across a variety of specialist areas, including engines, driveline and chassis components. You’ll complete sessions in both the classroom and the workshop, learning all about brakes, steering and suspensions systems, tyres, exhaust systems, health and safety practices, and how to remove and replace engine components. You will also work on your own personal social development too, understanding what it’s like to work in a garage and building an awareness of the different jobs roles and responsibilities in a dealership. As this Level 1 Certificate in Transport Maintenance is a vocationally related qualification (VRQ), it’s directly relevant to the automotive sector and is awarded by the Institute of the Motor Industry (IMI).",duration:525600, activity_type:"Short Course")
 
