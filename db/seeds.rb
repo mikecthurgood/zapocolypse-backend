@@ -398,3 +398,8 @@ SkillActivity.create(activity:lvhand2,skill:lvhand,level:1)
 SkillActivity.create(activity:mbhand3,skill:mbhand,level:1)
 SkillActivity.create(activity:offcar4,skill:offcar,level:1)
 SkillActivity.create(activity:offbike5,skill:offbike,level:1)
+
+
+
+user1.activities << fish1
+user1.activities << fish2
