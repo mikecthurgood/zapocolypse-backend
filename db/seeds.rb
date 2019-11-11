@@ -403,3 +403,6 @@ SkillActivity.create(activity:offbike5,skill:offbike,level:1)
 
 user1.activities << fish1
 user1.activities << fish2
+
+user2.activities << fish1
+user2.activities << fish2
