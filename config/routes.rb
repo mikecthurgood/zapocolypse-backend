@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   post '/create-user', to: 'users#create'
 
   get '/skills', to: 'skills#index'
-  get '/skill', to: 'skills#show'
+  get '/skill/:id', to: 'skills#show'
 end

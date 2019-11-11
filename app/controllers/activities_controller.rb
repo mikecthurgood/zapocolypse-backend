@@ -4,7 +4,7 @@ class ActivitiesController < ApplicationController
     activities = Activity.all
     if user
       render json: activities.to_json(:include => {
-        :skills => {:only => [:name]}
+        :skills => {:only => [:name, :id, :image_url]}
         })
     else
       render json: {error: 'Unable to validate user.'}, status: 401
