@@ -5,6 +5,10 @@ class ApplicationController < ActionController::API
         User.find_by(id: id)
     end
 
+    def issue_token(data)
+        JWT.encode(data, secret)
+    end
+
     private
 
     def decode_token
@@ -17,10 +21,6 @@ class ApplicationController < ActionController::API
 
     def token
         request.headers['Authorization']
-    end
-
-    def issue_token(data)
-        JWT.encode(data, secret)
     end
 
     def secret
