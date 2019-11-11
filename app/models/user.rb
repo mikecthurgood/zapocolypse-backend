@@ -23,11 +23,11 @@ class User < ApplicationRecord
     end
 
     def activity_ids
-        self.activities.map(:&id)
+        self.activities.map(&:id)
     end
 
     def skill_ids
-        self.skills.map(:&id)
+        self.skills.map(&:id)
     end
     
 end
