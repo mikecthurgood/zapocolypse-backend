@@ -21,5 +21,13 @@ class User < ApplicationRecord
         end
         return skill_hash
     end
+
+    def activity_ids
+        self.activities.map(:&id)
+    end
+
+    def skill_ids
+        self.skills.map(:&id)
+    end
     
 end
