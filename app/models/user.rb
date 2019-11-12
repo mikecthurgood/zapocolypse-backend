@@ -34,4 +34,36 @@ class User < ApplicationRecord
         skill_zaps.select{|k, v| k.to_i == skill.id}
     end
 
+    def skill_class_zaps
+        skill_zaps.map do |k,v|
+            {"#{Skill.all.find(k.to_i).skill_class.name}": v}
+        end
+    end
+
+    def skill_class_zaps
+        hash = {}
+        SkillClass.all.each{|sc| hash[sc.name] = 0}
+
+        skill_zaps.each do |k,v|
+            hash["#{Skill.all.find(k.to_i).skill_class.name}"] += choose_val(v)
+        end
+        hash
+    end
+
+    def choose_val(val)
+        if (val>=0 && val < 5) 
+            return val.to_f/(5*6)
+        elsif (val>=5 && val < 20)
+            return 2*val.to_f/(20*6)
+        elsif (val>=20 && val < 100)
+            return 3*val.to_f/(100*6)
+        elsif (val>=100 && val < 500)
+            return 4*val.to_f/(500*6)
+        elsif (val>=500 && val < 1000)
+            return 5*val.to_f/(1000*6)
+        elsif (val>=1000)
+            return 6*val.to_f/(1500*6)
+        end
+    end
+
 end
