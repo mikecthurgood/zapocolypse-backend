@@ -29,5 +29,9 @@ class User < ApplicationRecord
     def skill_ids
         self.skills.map(&:id)
     end
-    
+
+    def skill_zap(skill_id)
+        skill_zaps.select{|k, v| k === skill_id}
+    end
+
 end
