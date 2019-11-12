@@ -25,4 +25,19 @@ class ActivitiesController < ApplicationController
     end
   end
 
+  def book
+    user = get_current_user
+    activity = Activity.all.find(params[:id])
+    if user
+      if !user.activities.include?(activity)
+        user.activities << activity
+        render json: {user: UserSerializer.new(user)}
+      else
+        render json: {error: 'Activity already booked'}, status: 401
+      end
+    else
+      render json: {error: 'Unable to validate user.'}, status: 401
+    end
+  end
+
 end

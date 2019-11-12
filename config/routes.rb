@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  get '/activities/:id/book', to: 'activities#book'
   get '/activities/:id', to: 'activities#show'
   get '/activities', to: 'activities#index'
   
