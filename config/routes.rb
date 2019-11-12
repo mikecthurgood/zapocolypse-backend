@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/activities', to: 'activities#index'
   
   get 'users', to: 'users#index' #to check user objects (can delete post dev)
+  get '/chart-data', to: 'users#chartdata'
   post '/signin', to: 'users#signin'
   get '/validate', to: 'users#validate'
   post '/create-user', to: 'users#create'
