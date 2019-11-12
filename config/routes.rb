@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/validate', to: 'users#validate'
   post '/create-user', to: 'users#create'
 
-  get '/skill/:id', to: 'skills#show'
+  get '/skills/:id', to: 'skills#show'
   get '/skills', to: 'skills#index'
 
   
