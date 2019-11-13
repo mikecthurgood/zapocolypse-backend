@@ -45,8 +45,9 @@ class UsersController < ApplicationController
 
   def chartdata
     user = get_current_user
+
     if user
-      render json: {skillClassZaps: user.skill_class_zaps}
+      render json: {skillClassZaps: user.skill_class_zaps, strongestSkills: user.strongest_skills}
     else
       render json: {error: 'Unable to validate user.'}, status: 401
     end
