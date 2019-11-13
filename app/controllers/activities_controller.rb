@@ -40,4 +40,30 @@ class ActivitiesController < ApplicationController
     end
   end
 
+  def create
+    user = get_current_user
+    activity = Activity.new(name: activity_params[:name], description: activity_params[:description])
+
+    if user
+      if activity.save
+        array = activity_params[:skills]
+        activity_params[:skills].each do |sk|
+          skill = Skill.all.find_by(name: sk[:name])
+          SkillActivity.create(activity: activity, skill: skill, level: sk[:value])
+        end
+        user.activities << activity
+        render json: {activity: activity}
+      else
+        render json: {error: 'Failed to create your Activity'}, status: 400
+      end
+    else
+      render json: {error: 'Unable to validate user.'}, status: 401
+    end
+    
+  end
+
+  def activity_params
+    params.require(:activity).permit(:name, :description, skills:[:name, :value])
+  end
+
 end

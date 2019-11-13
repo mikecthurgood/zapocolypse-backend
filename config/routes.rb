@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get '/activities/:id/book', to: 'activities#book'
   get '/activities/:id', to: 'activities#show'
   get '/activities', to: 'activities#index'
+  post '/activities/create', to: 'activities#create'
   
   get 'users', to: 'users#index' #to check user objects (can delete post dev)
   get '/chart-data', to: 'users#chartdata'
