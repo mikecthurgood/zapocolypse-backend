@@ -62,6 +62,8 @@ class User < ApplicationRecord
             return 4*val.to_f/(1000*6)
         elsif (val>=500 && val < 1000)
             return 5*val.to_f/(2000*6)
+        elsif (val*6 >= 3000*6)
+            return 3000*6
         elsif (val>=2000)
             return 6*val.to_f/(3000*6)
         end
