@@ -15,7 +15,9 @@ class ActivitiesController < ApplicationController
   
   def index
     user = get_current_user
-    activities = Activity.all
+
+    activities = Activity.all.find_all{|a| a.public == true}
+
     if user
       render json: activities.to_json(:include => {
         :skills => {:only => [:name, :id, :image_url]}
@@ -42,7 +44,7 @@ class ActivitiesController < ApplicationController
 
   def create
     user = get_current_user
-    activity = Activity.new(name: activity_params[:name], description: activity_params[:description])
+    activity = Activity.new(name: activity_params[:name], description: activity_params[:description], public: false)
 
     if user
       if activity.save
