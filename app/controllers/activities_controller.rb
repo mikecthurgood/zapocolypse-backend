@@ -52,7 +52,7 @@ class ActivitiesController < ApplicationController
           SkillActivity.create(activity: activity, skill: skill, level: sk[:value])
         end
         user.activities << activity
-        render json: {activity: activity}
+        render json: {user: UserSerializer.new(user)}
       else
         render json: {error: 'Failed to create your Activity'}, status: 400
       end
